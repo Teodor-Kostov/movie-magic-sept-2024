@@ -3,3 +3,4 @@ JS Back-End Workshop @Softuni
 
 ## Developing Steps
     1. Initial Project Architecture
+    2. Setup express
