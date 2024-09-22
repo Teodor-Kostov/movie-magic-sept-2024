@@ -5,3 +5,4 @@ JS Back-End Workshop @Softuni
     1. Initial Project Architecture
     2. Setup express
     3. Setup Handlebars
+    4. Adding resources
