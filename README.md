@@ -11,4 +11,6 @@ JS Back-End Workshop @Softuni
     7. Add routes and controllers
     8. Render "about" page
     9. Extract partial template 
+    10: Add service and data layers
+    11: Add create page
 
