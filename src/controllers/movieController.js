@@ -26,7 +26,7 @@ router.get('/search',async (req,res)=>{
     const movies = await movieService.getAll(query);
     
 
-    res.render('home', {isSearch: true, movies});
+    res.render('home', {isSearch: true, movies, query});
 
 });
 
