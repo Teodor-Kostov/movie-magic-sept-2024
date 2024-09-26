@@ -28,6 +28,17 @@ router.get('/:movieId/details',async (req, res) =>{
     
     const movie = await movieService.getOne(movieId);
 
+    // prepare view data
+    movie.ratingView = getRatingViewData(movie.rating); // fixing the data to the movie obj and  place in the rating template {{movie.ratingView}}
+
     res.render('movies/details', {movie});
 });
+
+function getRatingViewData(rating){
+    if(!Number.isInteger(rating)){
+        return 'N/A';
+    }
+
+    return '&#x2605;'.repeat(rating);
+}
 export default router;
