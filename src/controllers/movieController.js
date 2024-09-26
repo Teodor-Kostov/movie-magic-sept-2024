@@ -21,6 +21,23 @@ router.post('/create', (req, res) =>{
     res.redirect('/'); // redirecting to home screen
    
 })
+router.get('/search',async (req,res)=>{
+    const query = req.query; //{ search: 'Home Alone', genre: 'action', year: '1991' }
+    const movies = await movieService.getAll(query);
+    
+
+    res.render('home', {isSearch: true, movies});
+
+});
+
+
+  // its better to use "GET" method. I#m using the search query  from (req.query)  
+    
+    
+    //req.body ---> by POST 
+    //req.params ---> reading the URL parameters // id...etc.
+    //req.query --->
+ 
 
 router.get('/:movieId/details',async (req, res) =>{
 
