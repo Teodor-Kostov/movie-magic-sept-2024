@@ -18,9 +18,21 @@ router.post('/create', (req, res) =>{
     movieService.create(movieData);
 
     //console.log(req.body); here i'm using the urlencoded middleware to pars the body of the form in index.js
-    res.redirect('/');
-    //res.end();
+    res.redirect('/'); // redirecting to home screen
+   
+})
+
+router.get('/:movieId/details',async (req, res) =>{
+
+    const movieId = req.params.movieId;
+    console.log(movieId);
     
 
-})
+    const movie = await movieService.getOne(movieId);
+
+    console.log(movie);
+    
+
+    res.render('movies/details', {movie});
+});
 export default router;

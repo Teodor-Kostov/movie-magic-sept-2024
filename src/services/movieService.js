@@ -13,7 +13,18 @@ const create = (movie) => {
    return movieData.create(movie);
 };
 
+const getOne = async (movieId)=>{
+
+    const movies = await movieData.getAll(); // taking all the movies
+
+    const resultMovie =  movies.find(movie => movie.id == movieId); // filtering the movies with the actual Id 
+
+
+    return resultMovie; // returning the wished movie
+}
+
 export default {
     getAll,
-    create
+    create,
+    getOne,
 }
