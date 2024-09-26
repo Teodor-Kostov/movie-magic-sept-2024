@@ -18,7 +18,9 @@ router.post('/create', (req, res) =>{
     movieService.create(movieData);
 
     //console.log(req.body); here i'm using the urlencoded middleware to pars the body of the form in index.js
-    res.end();
+    res.redirect('/');
+    //res.end();
+    
 
 })
 export default router;

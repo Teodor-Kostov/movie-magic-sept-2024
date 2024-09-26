@@ -22,14 +22,24 @@
       "description": "It is Christmas time and the McCallister family is preparing for a vacation in Paris, France. But the youngest in the family, Kevin (Macaulay Culkin), got into a scuffle with his older brother Buzz (Devin Ratray) and was sent to his room, which is on the third floor of his house. Then, the next morning, while the rest of the family was in a rush to make it to the airport on time, they completely forgot about Kevin, who now has the house all to himself. Being home alone was fun for Kevin, having a pizza all to himself, jumping on his parents' bed, and making a mess. Then, Kevin discovers two burglars, Harry (Joe Pesci) and Marv (Daniel Stern), about to rob his house on Christmas Eve. Kevin acts quickly by wiring his own house with makeshift booby traps to stop the burglars and to bring them to justice."
     },
     {
-      "title": "a",
-      "genre": "s",
-      "director": "d",
-      "year": "",
-      "imageUrl": "",
-      "rating": "",
-      "description": "",
-      "id": "3r7q88nln0m1jpcmxe"
+      "title": "Venom: The Last Dance",
+      "genre": "Adventure, Action, Sci-Fi",
+      "director": "Venom: The Last Dance",
+      "year": "2024",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAZsHbqpXd_m6ogSa78HDKXg1V3FhefLQgFQ&s",
+      "rating": "10",
+      "description": "Eddie und Venom sind auf der Flucht. Gejagt von ihren beiden Welten und mit dem Netz, das sich schließt, wird das Duo zu einer verheerenden Entscheidung gezwungen, die den Vorhang über Venom fallen lässt",
+      "id": "3r7q88nhacm1jpomka"
+    },
+    {
+      "title": "Deadpool & Wolverine",
+      "genre": "Buddy Comedy, Dark Comedy, Action, Adventure",
+      "director": " Shawn Levy",
+      "year": "2024",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR32jDoi5Uz8JomscF4ND6LaRryxzqPC-bba1oXGA8q0ZDJdz_inVW-mA50d3QbPGtvDYY&usqp=CAU",
+      "rating": "8.0/10",
+      "description": "Wolverine schließt sich dem \"Söldner mit der großen Klappe\" im dritten Teil der Deadpool-Filmreihe an.",
+      "id": "3r7q88n3ygm1jpx6fs"
     }
   ]
 }
