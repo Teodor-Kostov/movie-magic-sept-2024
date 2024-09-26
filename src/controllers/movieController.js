@@ -25,13 +25,8 @@ router.post('/create', (req, res) =>{
 router.get('/:movieId/details',async (req, res) =>{
 
     const movieId = req.params.movieId;
-    console.log(movieId);
     
-
     const movie = await movieService.getOne(movieId);
-
-    console.log(movie);
-    
 
     res.render('movies/details', {movie});
 });

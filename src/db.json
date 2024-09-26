@@ -5,6 +5,7 @@
       "title": "Jungle Cruise",
       "imageUrl": "/img/jungle-cruise.jpeg",
       "genre": "Adventure",
+      "rating": 9,
       "description": "Dreaming about saving countless lives and having another adventure, the feisty English feminist and doctor of botany, Dr Lily Houghton, embarks on a peril-laden mission to change the world. Along with her fashionable brother, MacGregor, Dr Houghton enlists the help of the arrogant, wisecracking riverboat skipper, Captain Frank Wolff, to guide them through the serpentine Amazon River in La Quila, his swift wooden boat. Now, as the intrepid trio ventures deeper and deeper into the heart of an impenetrable green maze, searching for something that cannot be found, a centuries-old curse and the ruthless aristocrat, Prince Joachim, threaten to put an end to their ambitious plans."
     },
     {
@@ -12,6 +13,7 @@
       "title": "The Little Mermaid",
       "imageUrl": "/img/the-little-mermaid.jpg",
       "genre": "Fantasy",
+      "rating": 1,
       "description": "The youngest of King Triton's daughters, Ariel is a beautiful and spirited young mermaid with a thirst for adventure. Longing to find out more about the world beyond the sea, Ariel visits the surface and falls for the dashing Prince Eric. Following her heart, she makes a deal with the evil sea witch, Ursula, to experience life on land."
     },
     {
@@ -19,6 +21,7 @@
       "title": "Home Alone",
       "imageUrl": "/img/home-alone.jpeg",
       "genre": "Comedy",
+      "rating": 10,
       "description": "It is Christmas time and the McCallister family is preparing for a vacation in Paris, France. But the youngest in the family, Kevin (Macaulay Culkin), got into a scuffle with his older brother Buzz (Devin Ratray) and was sent to his room, which is on the third floor of his house. Then, the next morning, while the rest of the family was in a rush to make it to the airport on time, they completely forgot about Kevin, who now has the house all to himself. Being home alone was fun for Kevin, having a pizza all to himself, jumping on his parents' bed, and making a mess. Then, Kevin discovers two burglars, Harry (Joe Pesci) and Marv (Daniel Stern), about to rob his house on Christmas Eve. Kevin acts quickly by wiring his own house with makeshift booby traps to stop the burglars and to bring them to justice."
     },
     {
@@ -27,7 +30,7 @@
       "director": "Venom: The Last Dance",
       "year": "2024",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAZsHbqpXd_m6ogSa78HDKXg1V3FhefLQgFQ&s",
-      "rating": "10",
+      "rating": 10,
       "description": "Eddie und Venom sind auf der Flucht. Gejagt von ihren beiden Welten und mit dem Netz, das sich schließt, wird das Duo zu einer verheerenden Entscheidung gezwungen, die den Vorhang über Venom fallen lässt",
       "id": "3r7q88nhacm1jpomka"
     },
@@ -37,7 +40,7 @@
       "director": " Shawn Levy",
       "year": "2024",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR32jDoi5Uz8JomscF4ND6LaRryxzqPC-bba1oXGA8q0ZDJdz_inVW-mA50d3QbPGtvDYY&usqp=CAU",
-      "rating": "8.0/10",
+      "rating": 10,
       "description": "Wolverine schließt sich dem \"Söldner mit der großen Klappe\" im dritten Teil der Deadpool-Filmreihe an.",
       "id": "3r7q88n3ygm1jpx6fs"
     }
