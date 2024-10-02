@@ -3,12 +3,15 @@ import express from "express";
 import routes from './routes.js';
 import handlebarsInit  from "./config/handlebarsInit.js";
 import expressInit from "./config/expressInit.js";
+import mongooseInit from "./config/mongooseInit.js";
 
 const app = express();
 const port = 5000;
 
+mongooseInit();
 handlebarsInit(app);
 expressInit(app);
+
 
 
 
