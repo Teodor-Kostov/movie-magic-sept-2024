@@ -43,6 +43,16 @@
       "rating": 10,
       "description": "Wolverine schließt sich dem \"Söldner mit der großen Klappe\" im dritten Teil der Deadpool-Filmreihe an.",
       "id": "3r7q88n3ygm1jpx6fs"
+    },
+    {
+      "title": "The Batman",
+      "genre": "Action",
+      "director": "Kiro KItaeca",
+      "year": "1992",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzTfqyAp2YuXaaYSus_CcZbexBdjVR-HAy1A&s",
+      "rating": 3,
+      "description": "Lorwem Ipsum",
+      "id": "3r7q88n3cgm1kam67c"
     }
   ]
 }
