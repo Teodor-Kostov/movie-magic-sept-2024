@@ -1,5 +1,5 @@
 # movie-magic-sept-2024
-JS Back-End Workshop @Softuni
+JS Back-End Workshop 1  @Softuni
 
 ## Developing Steps
     1. Initial Project Architecture
@@ -15,4 +15,10 @@ JS Back-End Workshop @Softuni
     11: Add create page
     12. Add Details page'
     13. Add search  page
+
+    JS Back-End Workshop 2 
+    
+    1. Extract config files
+    2.Setup mongoose
+    3. Add models
 
