@@ -1,3 +1,5 @@
+// All the functions in the Data lair will be changed with the in build functionalities of mongoose 
+
 import fs from 'fs/promises';
 import path from 'path';
 // is we had the "requere importer mode " wo could import the db.json directly... so no need of a read function

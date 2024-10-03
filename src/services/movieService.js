@@ -1,11 +1,9 @@
-import uniqid from 'uniqid'; // library for generating a unique ID 
+import Movie from '../models/Movie.js'; // swapping movieData with my model "Movie"
 
-
-import movieData from "../data/movieData.js";
-
+//TODO: Refactor using DB filtration
 const getAll = async (filter = {})=> {
-
-    let movies =  await movieData.getAll();
+    
+    let movies =  await Movie.find();
 
     if(filter.search){
         movies = movies.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
@@ -23,21 +21,17 @@ const getAll = async (filter = {})=> {
 
 const create = (movie) => {
 
-    movie.id = uniqid();
-    movie.rating = Number(movie.rating); // parsing the rating to Number 
+   // movie.id = uniqid(); i don't need a ID because mongoose has a unique ID 
+   // movie.rating = Number(movie.rating); // parsing the rating to Number  ;; mongoose is smart and converts the string to Number 
            
-   return movieData.create(movie);
+   //return movieData.create(movie);
+   return Movie.create(movie);
 };
 
-const getOne = async (movieId)=>{
+const getOne = (movieId)=>  Movie.findById(movieId); // taking all the movies
 
-    const movies = await movieData.getAll(); // taking all the movies
+    
 
-    const resultMovie =  movies.find(movie => movie.id == movieId); // filtering the movies with the actual Id 
-
-
-    return resultMovie; // returning the wished movie
-}
 
 export default {
     getAll,

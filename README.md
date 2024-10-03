@@ -19,6 +19,7 @@ JS Back-End Workshop 1  @Softuni
     JS Back-End Workshop 2 
     
     1. Extract config files
-    2.Setup mongoose
-    3. Add models
+    2. Setup mongoose
+    3. Add MOvie model
+    4. Convert file-based storage to db storage
 
