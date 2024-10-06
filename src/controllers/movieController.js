@@ -43,7 +43,7 @@ router.get('/:movieId/details',async (req, res) =>{
 
     const movieId = req.params.movieId;
     
-    const movie = await movieService.getOne(movieId);
+    const movie = await movieService.getOne(movieId).lean();//lean() used over a query is giving us a pure objects instead of document! 
 
     // prepare view data
     movie.ratingView = getRatingViewData(movie.rating); // fixing the data to the movie obj and  place in the rating template {{movie.ratingView}}

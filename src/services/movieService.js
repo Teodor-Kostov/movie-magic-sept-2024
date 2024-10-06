@@ -28,7 +28,7 @@ const create = (movie) => {
    return Movie.create(movie);
 };
 
-const getOne = (movieId)=>  Movie.findById(movieId); // taking all the movies
+const getOne = (movieId)=>  Movie.findById(movieId); // taking all the movies and and search with a curr ID 
 
     
 
