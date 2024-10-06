@@ -25,4 +25,5 @@ JS Back-End Workshop 1  @Softuni
     5. Add cast model
     6. Create cast page
     7. Add attach cast page 
+    8. Show cast in movie details 
 
