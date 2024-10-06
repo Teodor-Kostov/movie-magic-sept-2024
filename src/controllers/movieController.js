@@ -1,5 +1,6 @@
 import { Router } from "express"; // import the router
 import movieService from "../services/movieService.js";
+import castService from "../services/castService.js";
 
 const  router = Router(); //Creating the router instance
 
@@ -58,9 +59,11 @@ router.get('/:movieId/details',async (req, res) =>{
 router.get('/:movieId/attach', async(req, res)=>{
 
     const movieId = req.params.movieId;
-    const movie = await movieService.getOne(movieId).lean()
+    const movie = await movieService.getOne(movieId).lean();
+    const casts = await castService.getAll().lean();
 
-    res.render('movies/attach', {movie});
+
+    res.render('movies/attach', {movie, casts});
 })
 
 function getRatingViewData(rating){
