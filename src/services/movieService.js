@@ -2,18 +2,24 @@ import Movie from '../models/Movie.js'; // swapping movieData with my model "Mov
 import Cast from '../models/Cast.js';
 
 //TODO: Filter in DB not in memory
-const getAll = async(filter = {})=> {
+const getAll = (filter = {})=> {
     
-    let moviesQuery =  await Movie.find();
+    let moviesQuery = Movie.find();
 
     if(filter.search){
-        moviesQuery = moviesQuery.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
+        //moviesQuery = moviesQuery.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
+        //moviesQuery = moviesQuery.where('title').regex(new RegExp(filter.search, 'i')); or
+        moviesQuery.find({title: {$regex: filter.search, $options: 'i'}}); // regEx search lower upper case possibility 
     };
     if(filter.genre){
-        moviesQuery = moviesQuery.filter(movie => movie.genre.toLowerCase() === filter.genre.toLowerCase());
+        //moviesQuery = moviesQuery.filter(movie => movie.genre.toLowerCase() === filter.genre.toLowerCase());
+        moviesQuery.find({genre: filter.genre.toLowerCase()});// genre is validated in the model to lower case 
     };
     if(filter.year){
-        moviesQuery = moviesQuery.filter(movie => movie.year === filter.year);
+       // moviesQuery = moviesQuery.filter(movie => movie.year === filter.year);
+        moviesQuery.find({year: filter.year});
+
+
     };
     
     return moviesQuery;
