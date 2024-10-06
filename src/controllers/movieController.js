@@ -50,10 +50,12 @@ router.get('/:movieId/details',async (req, res) =>{
     
     const movie = await movieService.getOne(movieId).lean();//lean() used over a query is giving us a pure objects instead of document! 
 
+    const casts = await castService.getAll({movies: movieId}).lean(); // with lean i'm converting the document to js object and HBS does not throw an error
+
     // prepare view data
     movie.ratingView = getRatingViewData(movie.rating); // fixing the data to the movie obj and  place in the rating template {{movie.ratingView}}
 
-    res.render('movies/details', {movie});
+    res.render('movies/details', {movie, casts});
 });
 
 router.get('/:movieId/attach', async(req, res)=>{
@@ -64,7 +66,24 @@ router.get('/:movieId/attach', async(req, res)=>{
 
 
     res.render('movies/attach', {movie, casts});
-})
+});
+
+router.post('/:movieId/attach', async(req, res)=>{
+    const movieId = req.params.movieId;
+    const castId = req.body.cast;
+
+    try{
+        await movieService.attach(movieId, castId);
+        res.redirect(`/movies/${movieId}/details`, {});
+
+    }catch(error){
+        //res.redirect(`/movies/${movieId}/details`);
+        console.error('Error attaching cast to movie:',error);
+
+    };
+
+    
+});
 
 function getRatingViewData(rating){
     if(!Number.isInteger(rating)){
