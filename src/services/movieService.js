@@ -1,6 +1,6 @@
 import Movie from '../models/Movie.js'; // swapping movieData with my model "Movie"
 
-//TODO: Refactor using DB filtration
+//TODO: Filter in DB not in memory
 const getAll = async(filter = {})=> {
     
     let moviesQuery =  await Movie.find();

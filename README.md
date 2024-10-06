@@ -23,4 +23,5 @@ JS Back-End Workshop 1  @Softuni
     3. Add MOvie model
     4. Convert file-based storage to db storage
     5. Add cast model
+    6. Create cas page
 
