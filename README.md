@@ -13,7 +13,7 @@ JS Back-End Workshop 1  @Softuni
     9. Extract partial template 
     10: Add service and data layers
     11: Add create page
-    12. Add Details page'
+    12. Add Details page
     13. Add search  page
 
     JS Back-End Workshop 2 
@@ -23,5 +23,6 @@ JS Back-End Workshop 1  @Softuni
     3. Add MOvie model
     4. Convert file-based storage to db storage
     5. Add cast model
-    6. Create cas page
+    6. Create cast page
+    7. Add attach cast page 
 
