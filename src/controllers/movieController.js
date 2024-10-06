@@ -3,6 +3,10 @@ import movieService from "../services/movieService.js";
 
 const  router = Router(); //Creating the router instance
 
+function toArray(documents){
+    return documents.map(document => document.toObject()); // im converting the document to an Obj . Because Movies gives us document not Obj.
+}
+
 // URL: movies/create  --> im using modular router thats y the url is striped here and at router.js
 router.get('/create', (req, res)=>{
     res.render('movies/create');
@@ -23,10 +27,10 @@ router.post('/create', (req, res) =>{
 })
 router.get('/search',async (req,res)=>{
     const query = req.query; //{ search: 'Home Alone', genre: 'action', year: '1991' }
-    const movies = await movieService.getAll(query);
+    const movies = await movieService.getAll(query)
     
 
-    res.render('home', {isSearch: true, movies, query});
+    res.render('home', {isSearch: true, movies: toArray(movies), query});
 
 });
 

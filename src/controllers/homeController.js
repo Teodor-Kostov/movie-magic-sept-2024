@@ -3,7 +3,7 @@ import {Router} from "express";
 import movieService from "../services/movieService.js";
 
 const router = Router(); // no "New"
-
+// Temp solution 
 function toArray(documents){
     return documents.map(document => document.toObject()); // im converting the document to an Obj . Because Movies gives us document not Obj.
 }
