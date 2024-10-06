@@ -52,8 +52,7 @@ router.get('/:movieId/details',async (req, res) =>{
 
     const casts = await castService.getAll({movies: movieId}).lean(); // with lean i'm converting the document to js object and HBS does not throw an error
 
-    // prepare view data
-    movie.ratingView = getRatingViewData(movie.rating); // fixing the data to the movie obj and  place in the rating template {{movie.ratingView}}
+    
 
     res.render('movies/details', {movie, casts});
 });
@@ -74,7 +73,7 @@ router.post('/:movieId/attach', async(req, res)=>{
 
     try{
         await movieService.attach(movieId, castId);
-        res.redirect(`/movies/${movieId}/details`, {});
+        res.redirect(`/movies/${movieId}/details`);
 
     }catch(error){
         //res.redirect(`/movies/${movieId}/details`);
@@ -85,11 +84,5 @@ router.post('/:movieId/attach', async(req, res)=>{
     
 });
 
-function getRatingViewData(rating){
-    if(!Number.isInteger(rating)){
-        return 'N/A';
-    }
 
-    return '&#x2605;'.repeat(rating);
-}
 export default router;
