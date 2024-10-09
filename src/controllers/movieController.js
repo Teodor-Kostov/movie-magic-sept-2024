@@ -4,6 +4,7 @@ import castService from "../services/castService.js";
 
 const  router = Router(); //Creating the router instance
 
+//Deprecated
 function toArray(documents){
     return documents.map(document => document.toObject()); // im converting the document to an Obj . Because Movies gives us document not Obj.
 }
@@ -28,10 +29,10 @@ router.post('/create', (req, res) =>{
 })
 router.get('/search',async (req,res)=>{
     const query = req.query; //{ search: 'Home Alone', genre: 'action', year: '1991' }
-    const movies = await movieService.getAll(query)
+    const movies = await movieService.getAll(query).lean()
     
 
-    res.render('home', {isSearch: true, movies: toArray(movies), query});
+    res.render('home', {isSearch: true, movies, query});
 
 });
 
@@ -45,43 +46,32 @@ router.get('/search',async (req,res)=>{
  
 
 router.get('/:movieId/details',async (req, res) =>{
-
     const movieId = req.params.movieId;
-    
     const movie = await movieService.getOne(movieId).lean();//lean() used over a query is giving us a pure objects instead of document! 
 
-    const casts = await castService.getAll({movies: movieId}).lean(); // with lean i'm converting the document to js object and HBS does not throw an error
+    //const casts = await castService.getAllWithout(movie.casts).lean(); // with lean i'm converting the document to js object and HBS does not throw an error
 
-    
-
-    res.render('movies/details', {movie, casts});
+    res.render('movies/details', {movie});
 });
 
 router.get('/:movieId/attach', async(req, res)=>{
 
-    const movieId = req.params.movieId;
-    const movie = await movieService.getOne(movieId).lean();
-    const casts = await castService.getAll().lean();
+    const movie = await movieService.getOne(req.params.movieId).lean();
+    const casts = await castService.getAllWithout(movie.casts).lean();
 
 
     res.render('movies/attach', {movie, casts});
 });
 
-router.post('/:movieId/attach', async(req, res)=>{
+router.post('/:movieId/attach',async (req, res)=>{
     const movieId = req.params.movieId;
     const castId = req.body.cast;
 
-    try{
-        await movieService.attach(movieId, castId);
-        res.redirect(`/movies/${movieId}/details`);
-
-    }catch(error){
-        //res.redirect(`/movies/${movieId}/details`);
-        console.error('Error attaching cast to movie:',error);
-
-    };
-
     
+     await movieService.attach(movieId, castId);
+
+    res.redirect(`/movies/${movieId}/details`);
+
 });
 
 

@@ -27,3 +27,7 @@ JS Back-End Workshop 1  @Softuni
     7. Add attach cast page 
     8. Show cast in movie details 
 
+    JS Back-End Workshop 3 - Authentication
+
+    1.
+

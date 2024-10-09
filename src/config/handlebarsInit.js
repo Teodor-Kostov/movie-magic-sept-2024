@@ -5,6 +5,7 @@ import handlebars from "express-handlebars"
 export default function handlebarsInit(app){
     app.engine("hbs", handlebars.engine({
         extname: "hbs",
+        //initializing helpers
         helpers: {
             rating: function(rating){
                 if(!Number.isInteger(rating)){
