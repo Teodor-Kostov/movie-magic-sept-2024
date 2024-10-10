@@ -11,6 +11,8 @@ export const authMiddleware =  (req, res, next) =>{
     try{
        const decodedToken =  jwt.verify(token, JWT_SECRET);
 
+       //ToDo: Add user data to req
+
        return next();
 
     }catch(err){
