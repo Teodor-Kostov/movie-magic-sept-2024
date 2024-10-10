@@ -31,18 +31,16 @@ const movieSchema = new Schema({
     description: {
         type: String,
         required: true,
-        maxLength: 100
+        maxLength: 1000
     },
-    imageUrl: {
-        type: String,
-        required: true
-    },
+    imageUrl:  String,
+
     casts: [{
         character: String,
         rel: {
-        type: Types.ObjectId, 
-        ref: 'Cast'
-        }, _id: false
+            type: Types.ObjectId, 
+            ref: 'Cast'
+        }//, _id: false
     }] // relation with Cast 
 
 });
