@@ -31,5 +31,7 @@ JS Back-End Workshop 1  @Softuni
     ## JS Back-End Workshop 3 - Authentication
 
     1. Add register page
+    2. Create User model
+        2.1. Create a password hashing at Model level 
     //2. Add log in page 
 

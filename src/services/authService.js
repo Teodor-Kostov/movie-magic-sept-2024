@@ -1,9 +1,12 @@
 import User from "../models/Users.js";
+import bcrypt from "bcrypt";
 
-const register = (email, password) =>{
+const register = async (email, password) =>{
+
+   
+
 
     return User.create({email, password})
-    
     
 
 };
