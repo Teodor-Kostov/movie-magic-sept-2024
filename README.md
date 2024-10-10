@@ -33,8 +33,8 @@ JS Back-End Workshop 1  @Softuni
     1. Add register page
     2. Create User model
         2.1. Create a password hashing at Model level before save 
-    2. Add log in page 
-       // 2.1: User Validation
-       // 2.2: Hash Pass validation
-       // 2.3: Add Token to cookie
+    3. Add log in page 
+        3.1: User Validation
+        3.2: Hash Pass validation
+        3.3: Add Token to cookie and instal (npm i cookie-parser)
 
