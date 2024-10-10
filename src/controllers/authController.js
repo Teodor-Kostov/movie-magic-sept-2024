@@ -1,5 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
+
+
 const router = Router();
 
 
@@ -33,8 +35,10 @@ router.post('/login',async (req, res)=>{
     const token = await authService.login(email, password);
     // token is added to the header thats why the controller is the right place to create it 
 
-    //ToDo: Add token to cookie
+    //crating cookie and add token to cookie
+    res.cookie('auth', token, {httpOnly: true});
 
+    res.redirect('/');
 
 });
 
