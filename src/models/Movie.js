@@ -37,7 +37,13 @@ const movieSchema = new Schema({
         type: String,
         required: true
     },
-    casts: [{type: Types.ObjectId, ref: 'Cast'}] // relation with Cast 
+    casts: [{
+        character: String,
+        rel: {
+        type: Types.ObjectId, 
+        ref: 'Cast'
+        }, _id: false
+    }] // relation with Cast 
 
 });
 

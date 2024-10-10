@@ -26,6 +26,7 @@ JS Back-End Workshop 1  @Softuni
     6. Create cast page
     7. Add attach cast page 
     8. Show cast in movie details 
+    9: env file, exporting library "npm i dotenv"
 
     JS Back-End Workshop 3 - Authentication
 

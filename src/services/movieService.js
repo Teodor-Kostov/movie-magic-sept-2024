@@ -35,12 +35,12 @@ const create = (movie) => {
    //return movieData.create(movie);
    return Movie.create(movie);
 };
+ 
+const getOne = (movieId)=>  Movie.findById(movieId).populate('casts.rel'); // taking all the movies and and search with a curr ID 
 
-const getOne = (movieId)=>  Movie.findById(movieId).populate('casts'); // taking all the movies and and search with a curr ID 
-
-const attach = (movieId, castId) =>{// relations between models in DB many to many
+const attach = (movieId, castId, character) =>{// relations between models in DB many to many
     
-    return Movie.findByIdAndUpdate(movieId, {$push: {casts: castId}}); // pushing the castId to the curr movie
+    return Movie.findByIdAndUpdate(movieId, {$push: {casts: {rel: castId, character}}}); // pushing the castId to the curr movie
 };
 
     
