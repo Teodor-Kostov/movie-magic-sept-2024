@@ -14,6 +14,8 @@ export const authMiddleware =  (req, res, next) =>{
        return next();
 
     }catch(err){
+        res.clearCookie('auth');
+        res.redirect('/auth/login')
 
         //ToDo: if throws an error... that means that the token is invalid (expired etc.)
         
