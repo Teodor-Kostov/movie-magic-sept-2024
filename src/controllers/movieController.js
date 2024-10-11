@@ -106,7 +106,7 @@ router.post('/:movieId/edit', async (req, res)=>{
     const movieData = req.body;
 
     await movieService.updateMovie(movieId, movieData);
-    res.redirect('/');
+    res.redirect(`/movies/${movieId}/details`)
 });
 
 
