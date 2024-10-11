@@ -40,4 +40,5 @@ JS Back-End Workshop 1  @Softuni
     4. Add authorization 
     5. Add owner relation to movie
     6. Add owner control btns in details page  
+    7: Delete movie
 

@@ -92,5 +92,22 @@ router.get('/:movieId/delete', async(req,res)=>{
 
 });
 
+router.get('/:movieId/edit', async(req, res)=>{
+
+    const movieId = req.params.movieId;
+    const movie = await movieService.getOne(movieId).lean();
+    
+    res.render('movies/edit', {movie})
+
+});;
+
+router.post('/:movieId/edit', async (req, res)=>{
+    const movieId = req.params.movieId;
+    const movieData = req.body;
+
+    await movieService.updateMovie(movieId, movieData);
+    res.redirect('/');
+});
+
 
 export default router;

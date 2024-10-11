@@ -45,6 +45,8 @@ const attach = (movieId, castId, character) =>{// relations between models in DB
 
 const remove = (movieId) => Movie.findByIdAndDelete(movieId);
 
+const updateMovie = (movieId, movieData) => Movie.findByIdAndUpdate(movieId, movieData);
+
     
 
 
@@ -53,5 +55,6 @@ export default {
     create,
     getOne,
     attach,
-    remove
+    remove,
+    updateMovie
 }
