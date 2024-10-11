@@ -57,9 +57,10 @@ router.get('/:movieId/details',async (req, res) =>{
     
     const isOwner = req.user?._id === movie.owner?.toString(); // fixing the case when is no owner "?" with optional chaining
     
+    
+    
 
-
-    res.render('movies/details', {movie, isOwner});
+    res.render('movies/details', {movie, isOwner });
 });
 
 router.get('/:movieId/attach', async(req, res)=>{

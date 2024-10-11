@@ -14,10 +14,14 @@ export const authMiddleware =  (req, res, next) =>{
        
 
        //ToDo: Add user data to req
-       req.user = {
+        const user = {
         _id: decodedToken._id,
         email: decodedToken.email
        };
+       req.user = user;
+       res.locals.userId = user._id;
+       res.locals.userEmail = user.email;
+       res.locals.isAuthenticated = true; // if goes here is always true 
 
        return next();
 
