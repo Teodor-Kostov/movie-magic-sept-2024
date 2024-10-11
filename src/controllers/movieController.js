@@ -83,5 +83,14 @@ router.post('/:movieId/attach',async (req, res)=>{
 
 });
 
+router.get('/:movieId/delete', async(req,res)=>{
+    const movieId = req.params.movieId;
+
+    await movieService.remove(movieId);
+
+    res.redirect('/');
+
+});
+
 
 export default router;
