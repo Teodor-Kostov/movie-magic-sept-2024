@@ -54,9 +54,12 @@ router.get('/:movieId/details',async (req, res) =>{
     const movie = await movieService.getOne(movieId).lean();//lean() used over a query is giving us a pure objects instead of document! 
 
     //const casts = await castService.getAllWithout(movie.casts).lean(); // with lean i'm converting the document to js object and HBS does not throw an error
-    //const isOwner = req.user?._id == movie
+    
+    const isOwner = req.user?._id === movie.owner?.toString(); // fixing the case when is no owner "?" with optional chaining
+    
 
-    res.render('movies/details', {movie});
+
+    res.render('movies/details', {movie, isOwner});
 });
 
 router.get('/:movieId/attach', async(req, res)=>{

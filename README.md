@@ -38,5 +38,6 @@ JS Back-End Workshop 1  @Softuni
         3.2: Hash Pass validation
         3.3: Add Token to cookie and instal (npm i cookie-parser)
     4. Add authorization 
-    5. Add owner control btns in details page  
+    5. Add owner relation to movie
+    6. Add owner control btns in details page  
 
