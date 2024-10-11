@@ -20,8 +20,10 @@ router.post('/create', (req, res) =>{
 
     const movieData = req.body;
 
+    const ownerId = req.user?._id; // since i have the user who is creating the movie form the authMiddleware i can use it everywhere 
+
     //TODO: save movie data 
-    movieService.create(movieData);
+    movieService.create(movieData, ownerId);
 
     //console.log(req.body); here i'm using the urlencoded middleware to pars the body of the form in index.js
     res.redirect('/'); // redirecting to home screen
@@ -46,10 +48,13 @@ router.get('/search',async (req,res)=>{
  
 
 router.get('/:movieId/details',async (req, res) =>{
+    
+    
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId).lean();//lean() used over a query is giving us a pure objects instead of document! 
 
     //const casts = await castService.getAllWithout(movie.casts).lean(); // with lean i'm converting the document to js object and HBS does not throw an error
+    //const isOwner = req.user?._id == movie
 
     res.render('movies/details', {movie});
 });

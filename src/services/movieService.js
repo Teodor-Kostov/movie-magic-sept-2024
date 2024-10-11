@@ -27,13 +27,13 @@ const getAll = (filter = {})=> {
 
 };
 
-const create = (movie) => {
+const create = (movie, ownerId) => {
 
    // movie.id = uniqid(); i don't need a ID because mongoose has a unique ID 
    // movie.rating = Number(movie.rating); // parsing the rating to Number  ;; mongoose is smart and converts the string to Number 
            
    //return movieData.create(movie);
-   return Movie.create(movie);
+   return Movie.create({...movie, owner: ownerId});
 };
  
 const getOne = (movieId)=>  Movie.findById(movieId).populate('casts.rel'); // taking all the movies and and search with a curr ID 

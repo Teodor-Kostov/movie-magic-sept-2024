@@ -38,10 +38,13 @@ const movieSchema = new Schema({
     casts: [{
         character: String,
         rel: {
-            type: Types.ObjectId, 
+            type: Types.ObjectId, // relation with Cast Model
             ref: 'Cast'
         }//, _id: false
-    }] // relation with Cast 
+    }], owner:{
+        type: Types.ObjectId, // relation with User Model   
+        ref: 'Users'
+    }
 
 });
 
