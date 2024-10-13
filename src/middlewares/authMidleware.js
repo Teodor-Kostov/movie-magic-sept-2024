@@ -2,7 +2,7 @@
 import jwt from '../lib/jwt.js';
 import { JWT_SECRET } from "../config/constants.js";
 
-export const authMiddleware =  (req, res, next) =>{
+export const authMiddleware = async (req, res, next) =>{
     //ToDo: Check if there is a token in the request
     const token = req.cookies['auth']; // thats the cookie name where we can search for token
     if(!token){
@@ -10,7 +10,7 @@ export const authMiddleware =  (req, res, next) =>{
     };
     //ToDo: Validate the token
     try{
-       const decodedToken =  jwt.verify(token, JWT_SECRET);
+       const decodedToken = await jwt.verify(token, JWT_SECRET);
        
        
 
@@ -21,7 +21,7 @@ export const authMiddleware =  (req, res, next) =>{
        };
        req.user = user;
        req.isAuthenticated = true; 
-       res.locals.userId = user._id;
+       res.locals.userId = user._id; // saving user data in the current req/res session
        res.locals.userEmail = user.email;
        res.locals.isAuthenticated = true; // if goes here is always true 
 

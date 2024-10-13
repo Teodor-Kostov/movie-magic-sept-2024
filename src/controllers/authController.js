@@ -16,10 +16,12 @@ router.get('/register', (req, res)=>{
 router.post('/register',async (req, res)=>{
     
     const {email, password, rePassword} = req.body;
-
     await authService.register(email, password);
 
-    res.redirect('/auth/login');
+    const token = await authService.login(email, password); // auto log in after registration
+    res.cookie('auth', token, {httpOnly: true});
+
+    res.redirect('/'); // redirecting to home screen 
     
 });
 
