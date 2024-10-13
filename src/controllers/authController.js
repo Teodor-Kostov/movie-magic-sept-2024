@@ -1,5 +1,6 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
+import validator from "validator";
 
 
 const router = Router();
@@ -16,6 +17,13 @@ router.get('/register', (req, res)=>{
 router.post('/register',async (req, res)=>{
     
     const {email, password, rePassword} = req.body;
+
+    // Validate email format using validator library 
+    if (!validator.isEmail(email)) {
+        res.status(400).end();
+        
+    }
+
     await authService.register(email, password);
 
     const token = await authService.login(email, password); // auto log in after registration
