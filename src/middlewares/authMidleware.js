@@ -19,6 +19,7 @@ export const authMiddleware =  (req, res, next) =>{
         email: decodedToken.email
        };
        req.user = user;
+       req.isAuthenticated = true; 
        res.locals.userId = user._id;
        res.locals.userEmail = user.email;
        res.locals.isAuthenticated = true; // if goes here is always true 
@@ -40,4 +41,12 @@ export const authMiddleware =  (req, res, next) =>{
 
 
     // ToDo: Add user data to request
-}   
+};
+
+export const isAuth = (req, res, next) => {  // passing the function everyway where is needed a authentication check (create, attach, edit..)
+    
+    if (!req.isAuthenticated ){
+        return res.redirect('/auth/login');
+    };
+    return next();
+}

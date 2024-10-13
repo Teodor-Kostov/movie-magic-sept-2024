@@ -1,6 +1,8 @@
 import { Router } from "express"; // import the router
 import movieService from "../services/movieService.js";
 import castService from "../services/castService.js";
+import { isAuth } from "../middlewares/authMidleware.js";
+
 
 const  router = Router(); //Creating the router instance
 
@@ -10,13 +12,13 @@ function toArray(documents){
 }
 
 // URL: movies/create  --> im using modular router thats y the url is striped here and at router.js
-router.get('/create', (req, res)=>{
+router.get('/create',isAuth , (req, res)=>{
     res.render('movies/create');
 
 });
 
 // by removing the action="#"  from create.hbs- form i'm getting the default action /movies/create
-router.post('/create', (req, res) =>{
+router.post('/create',isAuth , (req, res) =>{
 
     const movieData = req.body;
 
@@ -63,7 +65,7 @@ router.get('/:movieId/details',async (req, res) =>{
     res.render('movies/details', {movie, isOwner });
 });
 
-router.get('/:movieId/attach', async(req, res)=>{
+router.get('/:movieId/attach', isAuth,  async(req, res)=>{
 
     const movie = await movieService.getOne(req.params.movieId).lean();
     const casts = await castService.getAllWithout(movie.casts).lean();
@@ -72,7 +74,7 @@ router.get('/:movieId/attach', async(req, res)=>{
     res.render('movies/attach', {movie, casts});
 });
 
-router.post('/:movieId/attach',async (req, res)=>{
+router.post('/:movieId/attach',isAuth,  async (req, res)=>{
     const movieId = req.params.movieId;
     const castId = req.body.cast;
     const character = req.body.character;
@@ -84,7 +86,7 @@ router.post('/:movieId/attach',async (req, res)=>{
 
 });
 
-router.get('/:movieId/delete', async(req,res)=>{
+router.get('/:movieId/delete',isAuth,  async(req,res)=>{
     const movieId = req.params.movieId;
 
     await movieService.remove(movieId);
@@ -93,7 +95,7 @@ router.get('/:movieId/delete', async(req,res)=>{
 
 });
 
-router.get('/:movieId/edit', async(req, res)=>{
+router.get('/:movieId/edit',isAuth,  async(req, res)=>{
 
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId).lean();
@@ -102,7 +104,7 @@ router.get('/:movieId/edit', async(req, res)=>{
 
 });;
 
-router.post('/:movieId/edit', async (req, res)=>{
+router.post('/:movieId/edit',isAuth, async (req, res)=>{
     const movieId = req.params.movieId;
     const movieData = req.body;
 

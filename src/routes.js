@@ -9,11 +9,13 @@ import castController from './controllers/castController.js';
 
 import authController from './controllers/authController.js';
 
+import { isAuth } from "./middlewares/authMidleware.js";
+
 const router = express.Router();
 
 router.use(homeController);
 router.use('/movies',movieController);
-router.use('/casts',castController);
+router.use('/casts', isAuth, castController);
 router.use('/auth', authController);
 router.all('*', (req, res) =>{
     res.render('404');

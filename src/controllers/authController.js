@@ -42,6 +42,12 @@ router.post('/login',async (req, res)=>{
 
 });
 
+router.get('/logout', (req, res)=>{
+    res.clearCookie('auth');
+    res.redirect('/');
+    // in good authentication system have to be build mechanism to set the token to false or disable it somehow/ token invalidation
+});
+
 
 
 

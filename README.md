@@ -16,7 +16,7 @@ JS Back-End Workshop 1  @Softuni
     12. Add Details page
     13. Add search  page
 
-   ## JS Back-End Workshop 2 
+## JS Back-End Workshop 2 
     
     1. Extract config files
     2. Setup mongoose
@@ -28,7 +28,7 @@ JS Back-End Workshop 1  @Softuni
     8. Show cast in movie details 
     9: env file, exporting library "npm i dotenv"
 
-    ## JS Back-End Workshop 3 - Authentication
+## JS Back-End Workshop 3 - Authentication
 
     1. Add register page
     2. Create User model
@@ -41,4 +41,7 @@ JS Back-End Workshop 1  @Softuni
     5. Add owner relation to movie
     6. Add owner control btns in details page  
     7: Delete movie
+    9. Add dynamic menu
+    10. Add logout page
+    11. Add route guard
 
