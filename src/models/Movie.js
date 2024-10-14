@@ -3,37 +3,56 @@ import { Schema, model, Types } from "mongoose";
 const movieSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        minlength: 5,
+        validate: [/^[A-Za-z0-9 ]+$/, "Title contains invalid characters" ]  //form beginning to the end must contain A-Za--z0-9 and white space
     },
     genre: {
         type: String,
         required: true,
-        lowercase: true
+        lowercase: true,
+        validate: [/^[A-Za-z0-9 ]+$/, "Genre exceeds character limit or contains invalid characters" ]
     },
     director: {
         type: String,
-        required: true
+        required: true,
+        minlength: 5,
+        validate: [/^[A-Za-z0-9 ]+$/, "Director contains invalid characters" ]
+
     },
     year: {
         type: Number,
         required: true,
-        min: 1900,
-        max: 2050
+        min: [1900, "Can not add movies before 1900!"],
+        max: [2050, "Can not add movies after 2050"]
 
     },
     rating: {
         type: Number,
-        required: true,
-        min: 1,
-        max: 10
+       validate: {
+        validator: function(value){
+            if(this.year >= 2000 ){
+                return !!value
+            }else{
+                return true;
+            }
+        },
+        message: "Movies from 2000 and later must have a rating"
+       },
+        min: [1, "Rating should be at least 1. "],
+        max: [5, "Rating can be maximum 5"]
 
     },
     description: {
         type: String,
         required: true,
-        maxLength: 1000
+        minlength:[20, "Description mus be at least 20 characters long."],   
+        validate: [/^[A-Za-z0-9 ]+$/, "Description contains invalid characters." ]
     },
-    imageUrl:  String,
+    imageUrl:  {
+        type: String,
+        validate: [/^https?:\/\//,"Invalid image url!"]
+    },
 
     casts: [{
         character: String,

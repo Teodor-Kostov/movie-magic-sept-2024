@@ -12,8 +12,6 @@ export const authMiddleware = async (req, res, next) =>{
     try{
        const decodedToken = await jwt.verify(token, JWT_SECRET);
        
-       
-
        //ToDo: Add user data to req
         const user = {
         _id: decodedToken._id,
@@ -32,15 +30,7 @@ export const authMiddleware = async (req, res, next) =>{
         res.redirect('/auth/login')
 
         //ToDo: if throws an error... that means that the token is invalid (expired etc.)
-        
-
     }
-
-    
-
-
-
-
     // ToDo: Add user data to request
 };
 

@@ -25,7 +25,12 @@ router.post('/create',isAuth , (req, res) =>{
     const ownerId = req.user?._id; // since i have the user who is creating the movie form the authMiddleware i can use it everywhere 
 
     //TODO: save movie data 
-    movieService.create(movieData, ownerId);
+    try{
+        movieService.create(movieData, ownerId);
+    }catch(err){
+        console.log(err.message);
+        return res.end()
+    }
 
     //console.log(req.body); here i'm using the urlencoded middleware to pars the body of the form in index.js
     res.redirect('/'); // redirecting to home screen

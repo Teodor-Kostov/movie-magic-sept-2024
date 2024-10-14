@@ -18,13 +18,25 @@ router.post('/register',async (req, res)=>{
     
     const {email, password, rePassword} = req.body;
 
+   
+
     // Validate email format using validator library 
     if (!validator.isEmail(email)) {
         res.status(400).end();
         
-    }
+    };
 
-    await authService.register(email, password);
+
+    try{
+        await authService.register(email, password, rePassword);
+
+    }catch(err){
+        console.log(err.message);
+
+        return res.end();
+        
+
+    }
 
     const token = await authService.login(email, password); // auto log in after registration
     res.cookie('auth', token, {httpOnly: true});
