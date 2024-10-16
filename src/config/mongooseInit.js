@@ -7,7 +7,7 @@ const dbUrl = 'mongodb://localhost:27017/magic-movies';
 export default async function mongooseInit() {
 
     try{
-        const url = process.env.DB_URL || dbUrl;
+        const url = /*process.env.DB_URL ||*/ dbUrl;
         await connect(url);
         console.log('Connected to DB!' + url);
         
