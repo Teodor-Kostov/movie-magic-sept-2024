@@ -18,17 +18,27 @@ router.get('/create',isAuth , (req, res)=>{
 });
 
 // by removing the action="#"  from create.hbs- form i'm getting the default action /movies/create
-router.post('/create',isAuth , (req, res) =>{
+router.post('/create',isAuth ,async (req, res) =>{
 
     const movieData = req.body;
 
     const ownerId = req.user?._id; // since i have the user who is creating the movie form the authMiddleware i can use it everywhere 
 
     //TODO: save movie data 
-    try{
-        movieService.create(movieData, ownerId);
-    }catch(err){
-        console.log(err.message);
+    try {
+        await movieService.create(movieData, ownerId);
+    } catch(err){
+        console.dir(Object.values(err.errors)[0]?.message); // Always gives me the first error msg
+        //const errMsgs = Object.values(err.errors).map(error => error.message);  This gives me all the err msgs
+
+
+        //console.log(err.errors.title);
+        //console.log("-----------------------------------------------");
+        //console.log(errMsg);
+        
+        
+        
+        
         return res.end()
     }
 
