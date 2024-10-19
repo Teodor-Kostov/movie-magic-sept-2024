@@ -2,6 +2,7 @@ import { Router } from "express"; // import the router
 import movieService from "../services/movieService.js";
 import castService from "../services/castService.js";
 import { isAuth } from "../middlewares/authMidleware.js";
+import { getErrorMessage } from "../utils/errorUtils.js";
 
 
 const  router = Router(); //Creating the router instance
@@ -28,9 +29,13 @@ router.post('/create',isAuth ,async (req, res) =>{
     try {
         await movieService.create(movieData, ownerId);
     } catch(err){
-        console.dir(Object.values(err.errors)[0]?.message); // Always gives me the first error msg
+        // Challenge: Show multi errors
+
+        //console.dir(Object.values(err.errors)[0]?.message); // Always gives me the first error msg
         //const errMsgs = Object.values(err.errors).map(error => error.message);  This gives me all the err msgs
-        const errorMessage = Object.values(err.errors)[0]?.message; 
+        //const errorMessage = Object.values(err.errors)[0]?.message; 
+        const errorMessage = getErrorMessage(err);
+
 
 
         
@@ -99,6 +104,14 @@ router.post('/:movieId/attach',isAuth,  async (req, res)=>{
 
 router.get('/:movieId/delete',isAuth,  async(req,res)=>{
     const movieId = req.params.movieId;
+
+    // Check if owner 
+    const movie = await movieService.getOne(movieId).lean();
+    if(movie.owner.toString() !== req.user._id){
+        const errorMessage = 'You are not able to delete this movie!'; 
+          return res.render('404', {error: errorMessage});
+
+    }
 
     await movieService.remove(movieId);
 

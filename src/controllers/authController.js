@@ -8,6 +8,7 @@ const router = Router();
 
 import authService from "../services/authService.js";
 import User from "../models/Users.js";
+import { getErrorMessage } from "../utils/errorUtils.js";
 
 router.get('/register', (req, res)=>{
 
@@ -24,6 +25,7 @@ router.post('/register',async (req, res)=>{
     if (!validator.isEmail(email)) {
         res.status(400).end();
         
+        
     };
 
 
@@ -31,9 +33,10 @@ router.post('/register',async (req, res)=>{
         await authService.register(email, password, rePassword);
 
     }catch(err){
-        console.log(err.message);
+        const errorMessage = getErrorMessage(err);
 
-        return res.end();
+
+        return res.render('auth/register',{error: errorMessage, email});
         
 
     }
@@ -50,7 +53,7 @@ router.get('/login', (req, res)=>{
     res.render('auth/login');
 });
 
-router.post('/login',async (req, res)=>{
+router.post('/login',async (req, res)=>{ 
 
     const {email, password} = req.body;
 
