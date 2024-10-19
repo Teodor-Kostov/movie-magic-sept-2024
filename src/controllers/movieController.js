@@ -30,17 +30,13 @@ router.post('/create',isAuth ,async (req, res) =>{
     } catch(err){
         console.dir(Object.values(err.errors)[0]?.message); // Always gives me the first error msg
         //const errMsgs = Object.values(err.errors).map(error => error.message);  This gives me all the err msgs
+        const errorMessage = Object.values(err.errors)[0]?.message; 
 
 
-        //console.log(err.errors.title);
-        //console.log("-----------------------------------------------");
-        //console.log(errMsg);
         
-        
-        
-        
-        return res.end()
-    }
+        return res.render('movies/create', {error: errorMessage, movie: movieData}); // returning the same page to show the err msg and also the previous 
+        // movie data to not reset the form in every error (bad user experience )
+    };
 
     //console.log(req.body); here i'm using the urlencoded middleware to pars the body of the form in index.js
     res.redirect('/'); // redirecting to home screen
